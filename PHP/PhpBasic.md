@@ -92,3 +92,25 @@ header(‘WWW-Authenticate:Basic realm=”TopSecret”‘);
 __autoload () 类文件自动加载函数
 
 ```
+
+
+
+## PHP算法
+
+### 斐波那契数列
+```injectablephp
+function fibonacci($n){
+    if($n == 0){
+        return 0;
+    }else if ($n == 1){
+        return 1;
+    }else{
+        return fibonacci($n -1) + fibonacci($n -2);
+    }
+}
+
+$n = 10;
+for ($i = 0; $i <$n; $i++){
+    echo fibonacci($i).PHP_EOL;
+}
+```

@@ -172,3 +172,25 @@ Redis为单进程单线程模式，采用队列模式将并发访问变成串行
 
 2） 使用 setnx key “当前系统时间+锁持有的时间”
 和getset key “当前系统时间+锁持有的时间”组合的命令就可以实现。
+
+
+## PHP实现Redis原子锁
+```phpt
+<?php 
+$redis = new Redis();
+$redis->connect('localhost', 6379);
+
+
+$lock_name = 'my_lock';
+$acquired = $redis->setnx($lock_name, '1');
+
+
+if ($acquired) {
+  
+    $redis->del($lock_name);
+} else {
+  
+}
+?>
+
+```
